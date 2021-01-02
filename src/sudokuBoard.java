@@ -10,9 +10,9 @@ public class sudokuBoard {
      * @param boardMatrix Two dimensional array of the size 9x9
      * @return return board[][]
      */
-    public int[][] sudokuBoard(int[][] boardMatrix){
+    public sudokuBoard(int[][] boardMatrix){
         board = boardMatrix;
-        return getBoard();
+
     }
 
     /**
@@ -27,12 +27,22 @@ public class sudokuBoard {
      * This method prints out the board
      */
     public void printBoard(){
-        String printedBoard = null;
+        String printedBoard = "\n";
         for (int i = 0; i < 9; i++){
+
+
             for (int j = 0; j < 9; j++){
-                printedBoard += " | " + this.board[i][j];
+                if((j+1)% 3 == 0){
+                    printedBoard += this.board[i][j] + "  |  ";
+                } else{
+                    printedBoard += this.board[i][j] + "  ";
+                }
             }
-            printedBoard +="\n";
+            printedBoard += "\n";
+            if ((i+1)%3 == 0){
+                printedBoard += "-------------------------------------"+"\n";
+            }
+
         }
         System.out.println(printedBoard);
     }
