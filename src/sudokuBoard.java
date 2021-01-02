@@ -16,7 +16,7 @@ public class sudokuBoard {
     }
 
     /**
-     * Getter method for board[][]
+     * This method returns board[][]
      * @return board[][]
      */
     public int[][] getBoard() {

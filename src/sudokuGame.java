@@ -23,10 +23,18 @@ public class sudokuGame {
         board.setBlock(1,2,5);
         board.printBoard();
 
-        //testing backtrackingAlgorithm.findZeros()
+//        //testing backtrackingAlgorithm.findZeros()
         backtrackingAlgorithm bktrk = new backtrackingAlgorithm(board);
-        bktrk.findZeros();
-        bktrk.printLinkedList();
+//        bktrk.findZeros();
+//        bktrk.printLinkedList();
+
+        //testing isValid()
+        bktrk.isValid(0,4,9);
+        bktrk.isValid(1,4,3);       
+        bktrk.isValid(1,3,3);
+        bktrk.isValid(1, 6, 2);
+        board.printBoard();
+
 
 
 
