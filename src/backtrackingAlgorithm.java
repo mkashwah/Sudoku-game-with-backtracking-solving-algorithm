@@ -3,13 +3,18 @@ import java.util.LinkedList;
 public class backtrackingAlgorithm {
 
     sudokuBoard board;
-    LinkedList<boardCell> zeroCells = new LinkedList<>();       //this linked list will contain the cells which has zero (empty cells to be solved)
+    private LinkedList<boardCell> zeroCells = new LinkedList<>();       //this linked list will contain the cells which has zero (empty cells to be solved)
+    int zeroCellsSize;
+    int zeroCellsIndex = 0;
+
+
     /**
      * Default constructor taking board object as parameter
      * @param board of sudokuBoard type. To be used across the algorithm.
      */
     public backtrackingAlgorithm(sudokuBoard board){
         this.board = board;
+        findZeros();
     }
 
     /**
@@ -27,6 +32,7 @@ public class backtrackingAlgorithm {
                 }
             }
         }
+        zeroCellsSize = zeroCells.size();
     }
 
     /**
@@ -54,7 +60,7 @@ public class backtrackingAlgorithm {
         //checking row
         for(int c = 0; c < 9; c++){
             if(board.getBlock(i, c) == num){
-                System.out.println("input is invalid. it exists in the same row");     //for debugging
+                //System.out.println("input is invalid. it exists in the same row");     //for debugging
                 return false;
             }
         }
@@ -62,7 +68,7 @@ public class backtrackingAlgorithm {
         //checking column
         for(int r = 0; r < 9; r++){
             if(board.getBlock(r, j) == num){
-                System.out.println("input is invalid. it exists in the same column");     //for debugging
+                //System.out.println("input is invalid. it exists in the same column");     //for debugging
                 return false;
             }
         }
@@ -77,13 +83,37 @@ public class backtrackingAlgorithm {
         for(int r = floorI; r < ceilI; r++){
             for(int c = floorJ; c < ceilJ; c++) {
                 if(board.getBlock(r,c) == num){
-                    System.out.println("input is invalid. it exists in the same block");        //for debugging
+                    //System.out.println("input is invalid. it exists in the same block");        //for debugging
                     return false;
                 }
             }
         }
-        System.out.println("this was valid");       //for debugging
+//        System.out.println("this was valid");       //for debugging
         return true;
+    }
+
+    public void backtrack(){
+        int r;
+        int c;
+        //int i = zeroCells.size() - zeroCellsSize;
+        r = zeroCells.get(zeroCellsIndex).getI();
+        c = zeroCells.get(zeroCellsIndex).getJ();
+        //System.out.println("i = " + i + " r = " + r + " c = " + c + " num = " + board.getBlock(r,c));
+
+        for (int num = board.getBlock(r,c)+1; num <= 9; num++){
+            if(this.isValid(r,c,num)){      //check if the number is vaild in this position
+                this.board.setBlock(r,c,num);       //if true change 0 to num
+                zeroCellsIndex++;
+                System.out.println("success " + "zeroCellsIndex = " + zeroCellsIndex + " r = " + r + " c = " + c + " num = " + board.getBlock(r,c));
+                backtrack();
+            }
+        }
+        zeroCellsIndex--;
+        System.out.println("fail " + "zeroCellsIndex = " + zeroCellsIndex + " r = " + r + " c = " + c + " num = " + board.getBlock(r,c));
+
+        backtrack();
+
+
     }
 
 

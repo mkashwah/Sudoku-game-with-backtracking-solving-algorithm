@@ -1,4 +1,10 @@
 public class sudokuGame {
+    int n = 5;
+
+    public void changeN(){
+        n = 3;
+    }
+
     public static void main(String[] args) {
         //testing board creation and printing
 
@@ -19,25 +25,27 @@ public class sudokuGame {
         //testing printboard()
         board.printBoard();
 
-        //testing board.setBlock()
-        board.setBlock(1,2,5);
-        board.printBoard();
+//        //testing board.setBlock()
+//        board.setBlock(1,2,5);
+//        board.printBoard();
 
 //        //testing backtrackingAlgorithm.findZeros()
         backtrackingAlgorithm bktrk = new backtrackingAlgorithm(board);
+        bktrk.backtrack();
 //        bktrk.findZeros();
 //        bktrk.printLinkedList();
 
         //testing isValid()
-        bktrk.isValid(0,4,9);
-        bktrk.isValid(1,4,3);
-        bktrk.isValid(1,3,3);
-        bktrk.isValid(1, 6, 2);
-        bktrk.isValid(0,7,2);
-        bktrk.isValid(3,4,6);
-        bktrk.isValid(3,6,6);
-        bktrk.isValid(3,8,6);
-        board.printBoard();
+//        bktrk.isValid(0,4,9);
+//        bktrk.isValid(1,4,3);
+//        bktrk.isValid(1,3,3);
+//        bktrk.isValid(1, 6, 2);
+//        bktrk.isValid(0,7,2);
+//        bktrk.isValid(3,4,6);
+//        bktrk.isValid(3,6,6);
+//        bktrk.isValid(3,8,6);
+//        board.printBoard();
+
 
 
 
