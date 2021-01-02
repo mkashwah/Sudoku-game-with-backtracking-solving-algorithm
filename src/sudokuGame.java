@@ -18,8 +18,16 @@ public class sudokuGame {
 
         //testing printboard()
         board.printBoard();
+
+        //testing board.setBlock()
         board.setBlock(1,2,5);
         board.printBoard();
+
+        //testing backtrackingAlgorithm.findZeros()
+        backtrackingAlgorithm bktrk = new backtrackingAlgorithm(board);
+        bktrk.findZeros();
+
+
 
     }
 }
