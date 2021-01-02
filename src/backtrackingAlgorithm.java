@@ -66,7 +66,22 @@ public class backtrackingAlgorithm {
                 return false;
             }
         }
-        board.setBlock(i,j,num);
+
+        //checking the 3x3 blocks
+        //these 4 variables set the 3x3 block around the block being validated
+        int floorI = (int) (Math.floor(i/3) * 3);
+        int ceilI  = (int) ((Math.floor(i/3) + 1) * 3);
+        int floorJ = (int) (Math.floor(j/3) * 3);
+        int ceilJ  = (int) ((Math.floor(j/3) + 1) * 3);
+
+        for(int r = floorI; r < ceilI; r++){
+            for(int c = floorJ; c < ceilJ; c++) {
+                if(board.getBlock(r,c) == num){
+                    System.out.println("input is invalid. it exists in the same block");        //for debugging
+                    return false;
+                }
+            }
+        }
         System.out.println("this was valid");       //for debugging
         return true;
     }

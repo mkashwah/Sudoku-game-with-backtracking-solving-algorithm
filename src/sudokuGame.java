@@ -30,10 +30,16 @@ public class sudokuGame {
 
         //testing isValid()
         bktrk.isValid(0,4,9);
-        bktrk.isValid(1,4,3);       
+        bktrk.isValid(1,4,3);
         bktrk.isValid(1,3,3);
         bktrk.isValid(1, 6, 2);
+        bktrk.isValid(0,7,2);
+        bktrk.isValid(3,4,6);
+        bktrk.isValid(3,6,6);
+        bktrk.isValid(3,8,6);
         board.printBoard();
+
+
 
 
 
