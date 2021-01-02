@@ -95,23 +95,28 @@ public class backtrackingAlgorithm {
     public void backtrack(){
         int r;
         int c;
-        //int i = zeroCells.size() - zeroCellsSize;
+
+        if(zeroCellsIndex == zeroCellsSize){
+            return;
+        }
         r = zeroCells.get(zeroCellsIndex).getI();
         c = zeroCells.get(zeroCellsIndex).getJ();
-        //System.out.println("i = " + i + " r = " + r + " c = " + c + " num = " + board.getBlock(r,c));
+        //System.out.println("i = " + i + " r = " + r + " c = " + c + " num = " + board.getBlock(r,c));  //for debugging
 
         for (int num = board.getBlock(r,c)+1; num <= 9; num++){
             if(this.isValid(r,c,num)){      //check if the number is vaild in this position
                 this.board.setBlock(r,c,num);       //if true change 0 to num
                 zeroCellsIndex++;
-                System.out.println("success " + "zeroCellsIndex = " + zeroCellsIndex + " r = " + r + " c = " + c + " num = " + board.getBlock(r,c));
+                //System.out.println("success " + "zeroCellsIndex = " + zeroCellsIndex + " r = " + r + " c = " + c + " num = " + board.getBlock(r,c)); //for debugging
                 backtrack();
+                return;
             }
         }
+        this.board.setBlock(r,c,0);
         zeroCellsIndex--;
-        System.out.println("fail " + "zeroCellsIndex = " + zeroCellsIndex + " r = " + r + " c = " + c + " num = " + board.getBlock(r,c));
-
+        //System.out.println("fail " + "zeroCellsIndex = " + zeroCellsIndex + " r = " + r + " c = " + c + " num = " + board.getBlock(r,c)); //for debugging
         backtrack();
+        return;
 
 
     }

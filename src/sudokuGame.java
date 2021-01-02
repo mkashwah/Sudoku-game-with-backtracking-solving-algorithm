@@ -31,7 +31,10 @@ public class sudokuGame {
 
 //        //testing backtrackingAlgorithm.findZeros()
         backtrackingAlgorithm bktrk = new backtrackingAlgorithm(board);
+//        System.out.println(bktrk.zeroCellsSize);
         bktrk.backtrack();
+        board.printBoard();
+
 //        bktrk.findZeros();
 //        bktrk.printLinkedList();
 
