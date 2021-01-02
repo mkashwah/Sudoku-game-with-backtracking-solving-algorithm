@@ -69,10 +69,10 @@ public class backtrackingAlgorithm {
 
         //checking the 3x3 blocks
         //these 4 variables set the 3x3 block around the block being validated
-        int floorI = (int) (Math.floor(i/3) * 3);
-        int ceilI  = (int) ((Math.floor(i/3) + 1) * 3);
-        int floorJ = (int) (Math.floor(j/3) * 3);
-        int ceilJ  = (int) ((Math.floor(j/3) + 1) * 3);
+        int floorI = (i/3) * 3;
+        int ceilI  = ((i/3) + 1) * 3;
+        int floorJ = (j/3) * 3;
+        int ceilJ  = ((j/3) + 1) * 3;
 
         for(int r = floorI; r < ceilI; r++){
             for(int c = floorJ; c < ceilJ; c++) {
