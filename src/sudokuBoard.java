@@ -40,10 +40,37 @@ public class sudokuBoard {
             }
             printedBoard += "\n";
             if ((i+1)%3 == 0){
-                printedBoard += "-------------------------------------"+"\n";
+                printedBoard += "----------------------------------"+"\n";
             }
 
         }
         System.out.println(printedBoard);
     }
+
+    /**
+     * This method returns number at board(i,j)
+     * @param i row index
+     * @param j column index
+     * @return Number at index
+     */
+    public int getBlock(int i, int j){
+        return board[i][j];
+    }
+
+    /**
+     * This method changes the number at board(i,j) to int val
+     * @param i row index
+     * @param j column index
+     * @param val changed value
+     */
+    public void setBlock(int i, int j, int val){
+        if(val <= 9 && val >= 0){
+            board[i][j] = val;
+        } else {
+            System.out.println("value is out of expected 0 to 9");
+            board[i][j] = 0;
+        }
+
+    }
+
 }

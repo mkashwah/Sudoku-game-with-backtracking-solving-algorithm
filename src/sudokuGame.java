@@ -18,6 +18,8 @@ public class sudokuGame {
 
         //testing printboard()
         board.printBoard();
+        board.setBlock(1,2,5);
+        board.printBoard();
 
     }
 }
